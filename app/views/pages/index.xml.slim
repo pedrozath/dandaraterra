@@ -19,10 +19,10 @@ rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
             itunes:category{text=category["nome"]}
                 - for subcategory in category["subcategorias"]
                     itunes:category{text=subcategory["nome"]}
-        - @google_storage_address = "http://console.developers.google.com/m/cloudstorage/b/dandara-terra/o/com-licenca-poetica"
+        - @storage_adress = "https://s3-sa-east-1.amazonaws.com/dandara-terra/"
         - @data["episódios"].each_with_index do |episode, index|
             item
-                - @folder = "#{@google_storage_address}/#{index+1}-#{episode["título"].parameterize}"
+                - @folder = "#{@storage_adress}/#{index+1}-#{episode["título"].parameterize}"
                 title= episode["título"]
                 itunes:author= @data["autor"]
                 itunes:subtitle= episode["subtítulo"]
