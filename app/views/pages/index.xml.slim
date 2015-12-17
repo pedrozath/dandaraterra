@@ -1,56 +1,34 @@
 doctype XML
 rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" 
     channel
-        title Com Licença Poética
-        link "http://dandaraterra.com.br" do
-        language pt-br
-        copyright © 2015 Pedro Maciel e Dandara Terra
-        itunes:subtitle Poesias lidas ao som de trilhas sonoras originais
-        itunes:author Dandara Terra e Pedro Maciel
-        itunes:summary Toda semana uma poesia é lida ao som de uma trilha sonora feita por nós mesmos
-        description Toda semana uma poesia é lida ao som de uma trilha sonora feita por nós mesmos
-        itunes:owner
-            itunes:name Dandara Terra e Pedro Maciel
-            itunes:email contato@dandaraterra.com.br
-        itunes:image href="https://storage.googleapis.com/dandara-terra/com-licenca-poetica/1-com-licenc%CC%A7a-poetica.png"
-        itunes:category text="Art" 
-        itunes:category text="Poetry" 
-
-        item
-            title Com licença poética
-            itunes:author Dandara Terra e Pedro Maciel
-            itunes:subtitle Poema de Adélia Prado
-            itunes:summary
-                erb:
-                    <![CDATA[[A descrição será atualizada no futuro]]>
-            itunes:image href="https://console.developers.google.com/m/cloudstorage/b/dandara-terra/o/com-licenca-poetica/2-nos-os-revolucionarios.png" /
-            enclosure length="8727310" type="audio/mpeg" url="http://example.com/podcasts/everything/TudosobretudoEpisodio3.m4a" /
-            guid https://storage.googleapis.com/dandara-terra/com-licenca-poetica/1-com-licenca-poetica.mp3
-            pubdate Wed, 7 Se 2015 00:00:00 GMT
-            itunes:duration 2:31
-
-        item
-            title Nós os Revolucionários
-            itunes:author Dandara Terra e Pedro Maciel
-            itunes:subtitle Poema de Pedro Casaldáliga
-            itunes:summary
-                erb:
-                    <![CDATA[[A descrição será atualizada no futuro]]>
-            itunes:image href="https://console.developers.google.com/m/cloudstorage/b/dandara-terra/o/com-licenca-poetica/3-velha-historia.png" /
-            enclosure length="8727310" type="mpeg" url="https://console.developers.google.com/m/cloudstorage/b/dandara-terra/o/com-licenca-poetica/2-nos-os-revolucionarios.mp3" /
-            guid https://console.developers.google.com/m/cloudstorage/b/dandara-terra/o/com-licenca-poetica/2-nos-os-revolucionarios.mp3
-            pubdate Wed, 7 Se 2015 00:00:00 GMT
-            itunes:duration 2:31
-
-        item
-            title Velha história
-            itunes:author Dandara Terra e Pedro Maciel
-            itunes:subtitle Poema de Pedro Casaldáliga
-            itunes:summary
-                erb:
-                    <![CDATA[[A descrição será atualizada no futuro]]>
-            itunes:image href="https://console.developers.google.com/m/cloudstorage/b/dandara-terra/o/com-licenca-poetica/3-velha-historia.png" /
-            enclosure length="8727310" type="mpeg" url="https://console.developers.google.com/m/cloudstorage/b/dandara-terra/o/com-licenca-poetica/3-velha-historia.mp3" /
-            guid https://console.developers.google.com/m/cloudstorage/b/dandara-terra/o/com-licenca-poetica/2-nos-os-revolucionarios.mp3
-            pubdate Wed, 7 Se 2015 00:00:00 GMT
-            itunes:duration 2:31
+        title= @data["titulo"]
+        link= @data["site"]
+        language= @data["idioma"]
+        copyright= @data["autor"]
+        itunes:subtitle= @data["resumo"]
+        itunes:author= @data["autor"]
+        itunes:summary= @data["resumo"]
+        description= @data["descrição"]
+        - for owner in @data["contato"] 
+            itunes:owner
+                itunes:name= owner["nome"]
+                itunes:email= owner["e-mail"]
+        
+        itunes:image= @data["logo"]
+        - for category in @data["categorias"]
+            itunes:category{text=category["nome"]}
+                - for subcategory in category["subcategorias"]
+                    itunes:category{text=subcategory["nome"]}
+        - @google_storage_address = "https://console.developers.google.com/m/cloudstorage/b/dandara-terra/o/com-licenca-poetica"
+        - @data["episódios"].each_with_index do |episode, index|
+            item
+                - @folder = "#{@google_storage_address}/#{index+1}-#{episode["título"].parameterize}"
+                title= episode["título"]
+                itunes:author= @data["autor"]
+                itunes:subtitle= episode["subtítulo"]
+                itunes:summary
+                    <![CDATA[#{markdown episode["descrição"]}#{markdown @data["informações"]}]]>
+                itunes:image href="#{@folder}/art.png"
+                enclosure length="#{episode["bytes"]}" type="audio/mpeg" url="#{@folder}/audio.mp3"
+                pubdate= episode["data"].to_time.rfc2822
+                itunes:duration= episode["duração"]
