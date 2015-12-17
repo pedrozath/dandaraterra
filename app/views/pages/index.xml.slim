@@ -14,7 +14,7 @@ rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
                 itunes:name= owner["nome"]
                 itunes:email= owner["e-mail"]
         
-        itunes:image= @data["logo"]
+        itunes:image{href=@data["logo"]}
         - for category in @data["categorias"]
             itunes:category{text=category["nome"]}
                 - for subcategory in category["subcategorias"]
