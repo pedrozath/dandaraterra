@@ -1,18 +1,4 @@
-default: &default
-  adapter: postgresql
-  encoding: unicode
-  pool: 5
-
 development:
-  <<: *default
+  adapter: postgresql
+  host: localhost
   database: dandaraterra
-
-test:
-  <<: *default
-  database: dandaraterra
-
-production:
-  <<: *default
-  database: dandaraterra
-  username: dandaraterra
-  password: <%= ENV['DANDARATERRA_DATABASE_PASSWORD'] %>
