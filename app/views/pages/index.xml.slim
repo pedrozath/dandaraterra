@@ -19,7 +19,7 @@ rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
             itunes:category{text=category["nome"]}
                 - for subcategory in category["subcategorias"]
                     itunes:category{text=subcategory["nome"]}
-        - @storage_adress = "https://s3-sa-east-1.amazonaws.com/dandara-terra/"
+        - @storage_adress = "https://s3-sa-east-1.amazonaws.com/dandara-terra"
         - @data["episódios"].each_with_index do |episode, index|
             item
                 - @folder = "#{@storage_adress}/#{index+1}-#{episode["título"].parameterize}"
