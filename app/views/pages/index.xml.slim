@@ -5,7 +5,6 @@ rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
         link= @data["site"]
         language= @data["idioma"]
         copyright= @data["autor"]
-        itunes:subtitle= @data["resumo"]
         itunes:author= @data["autor"]
         itunes:summary= @data["resumo"]
         description= @data["descrição"]
@@ -30,6 +29,5 @@ rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
                     <![CDATA[#{markdown episode["descrição"]}#{markdown @data["informações"]}]]>
                 itunes:image href="#{@folder}/art.png"
                 enclosure length="#{episode["bytes"]}" type="audio/mpeg" url="#{@folder}/audio.mp3"
-                pubdate= episode["data"].to_time.rfc2822
-                itunes:order= index
+                pubDate= episode["data"].to_time.utc.strftime "%a, %d %b %Y %H:%M:%S GMT"
                 itunes:duration= episode["duração"]
