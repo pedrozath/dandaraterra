@@ -1,0 +1,28 @@
+name: Dandara Terra
+city: São Paulo
+state: SP
+drt: 33333
+phone: 11 XXXX XXXX
+email: contato@dandaraterra.com.br
+
+courses:
+  - name: Curso do Beto Silveira
+    duration: 3 anos
+    date: 20/20/2014
+    rating: 5
+
+works:
+  - type: Publicidade
+    name: Caixa Econômica Federal / Campanha de Pascoa 2016
+    director: Fulano de Tal
+    duration: 2 meses
+    date: 20/20/2014
+    rating: 5
+
+  - type: Peça de Teatro
+    name: A Feira
+    director: Rogério Pércore
+    duration: 2 meses
+    date: 20/20/2014
+    rating: 5
+
