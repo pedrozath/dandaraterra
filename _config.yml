@@ -1,38 +1,35 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
-
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
-# title: Your awesome title
-# email: your-email@example.com
-# description: >- # this means to ignore newlines until "baseurl:"
-#   Write an awesome description for your new site here. You can edit this
-#   line in _config.yml. It will appear in your document head meta (for
-#   Google search results) and in your feed.xml site description.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
-
-# Build settings
+url: ""     # the base hostname & protocol for your site, e.g. http://example.com
 markdown: kramdown
+assets:
+  features:
+    automatic_img_size: false
 
-# Exclude from processing.
-# The following items will not be processed, by default. Create a custom list
-# to override the default setting.
-# exclude:
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+links:
+  - Sobre
+  - Fotos
+  - Reel
+  - Com Licença Poética
+  - Contato
+
+demo_reel_youtube_code: XZnMWAdx02I
+
+clp_videos:
+  - name: Com Licença Poética | Adélia Prado
+    code: 3w_k7CMHroc
+
+  - name: Nós os Revolucionários | Pedro Casaldáliga
+    code: N0B2DuHx5Lo
+
+  - name: Velha História | Vinicius de Moraes
+    code: FMp6J4wHF4E
+
+  - name: Trama | Pedro Tierra
+    code: bPLlAsRat2E
+
+  - name: Esta casa | Paulo Gabriel
+    code: -5zNwQ7vHxY
+
+  - name: Nos pobres o seu rosto | Paulo Gabriel
+    code: 92xcorhS1s4
+

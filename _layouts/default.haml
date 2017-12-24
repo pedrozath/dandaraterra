@@ -1,0 +1,19 @@
+!!!
+%html
+  %head
+    %title Dandara Terra | Atriz
+    {% css app %}
+  %body
+    .left-column
+      %nav
+        %h1.logo
+          %a{:href => "#home"}
+            {% include logo-dandara-terra.svg %}
+            Dandara Terra
+
+        {% for link in site.links %}
+        %a{href: "#\{{ link | parameterize }}"} {{ link }}
+        {% endfor %}
+
+    %main.right-column
+      {{ content }}

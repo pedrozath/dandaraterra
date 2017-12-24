@@ -1,0 +1,74 @@
+---
+layout: default
+---
+
+%section.home#home
+  {% img dandara-terra-front.png %}
+
+%section.sobre#sobre
+  %h2 Sobre
+
+  Dandara Terra é uma atriz nascida em São Paulo e criada em Luciara (municipio localizado no Mato Grosso na divisa com o estado de Tocantins). Inicialmente formada em arquitetura em 2011, ingressou sua carreira no teatro em meados de 2005. Formada em 2006 pelo estudio Beto Silveira, teve participação em peças de formatura do mesmo: tananananana. Em 2015 fez parte da peça/performance Portas blablabla no evento Satirianas 2017.
+
+%section.fotos#fotos
+  %h2 Fotos
+
+  .gallery.photo-gallery
+    {% for i in (1..9) %}
+    %a{href: '{% asset_path "photos/photo-{{ i }}.jpg" %}', target: '_blank' }
+      {% img "photos/photo-{{ i }}.jpg" %}
+    {% endfor %}
+
+  %a{:href => "{% asset_path photos/book-dandara-terra-2017.zip %}"}
+    Baixar fotos
+
+%section.reel#reel
+  %h2 Reel
+
+  .widescreen
+    %iframe{ src: "https://www.youtube.com/embed/{{ site.demo_reel_youtube_code }}",
+             frameborder: "0",
+             gesture: "media",
+             allow: "encrypted-media",
+             allowfullscreen: true }
+
+%section.com-licenca-poetica#com-licenca-poetica
+  %h2 Com Licença Poética
+
+  Com Licença Poética é um projeto criado por Dandara Terra e
+  <a href='http://www.pedromaciel.com' >Pedro Maciel</a> em 2017 com intuito
+  de tananana
+
+  .gallery.video-gallery
+  {% for video in site.clp_videos %}
+    .video
+      .standard-tv
+        %a{:href => "https://www.youtube.com/watch?v={{video.code}}", target: '_blank'}
+          %img{:src => "https://img.youtube.com/vi/{{video.code}}/hqdefault.jpg", :alt => ""}
+
+
+  {% endfor %}
+
+
+%section.contato#contato
+
+  %h2 Contato
+
+  %table
+    %tbody
+      %tr
+        %th E-mail
+        %td
+          %a{:href => "mailto:contato@dandaraterra.com.br"}
+            contato@dandaraterra.com.br
+
+      %tr
+        %th Facebook
+        %td
+          %a{:href => "http://facebook.com/terradandara"}
+            facebook.com/terradandara
+
+      %tr
+        %th Telefone
+        %td
+          %phone (+55) (11) 95759 9777

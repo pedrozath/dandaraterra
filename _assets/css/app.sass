@@ -1,0 +1,119 @@
+$white: hsl(0,0,96)
+$black: hsl(0,0,15)
+$u: 20px
+
+*
+  box-sizing: border-box
+
+body
+  background-color: $white
+  margin: 0
+  line-height: $u
+  font-size: $u / 1.2
+  font-family: Helvetica
+  position: relative
+  display: flex
+  padding: 0 2 * $u
+
+  position: absolute
+  left: 0
+  top: 0
+  width: 100%
+  height: 100%
+
+  > *
+    flex: 1 0 0
+
+  > .left-column
+    flex-grow: 30
+    min-width: 14 * $u
+
+  > .right-column
+    flex-grow: 70
+
+    section
+      width: 100%
+      position: relative
+
+      &::after
+        display: table
+        clear: both
+        content: ""
+
+      + section
+        margin: (10 * $u) 0
+
+main
+  padding-bottom: 10 * $u
+
+h1.logo
+  width: 12 * $u
+  height: 4 * $u
+  position: relative
+
+  *
+    color: hsla(0,0,0,0)
+
+nav
+  top: 30%
+  position: fixed
+  z-index: 5
+
+  & > *
+    margin: $u/2 0
+  a
+    display: block
+    text-decoration: none
+
+  svg
+    left: 0
+    top: 0
+    position: absolute
+
+
+h1,h2,h3,h4,h5
+  margin: 0
+  padding: 0
+  line-height: 1
+
+h2
+  margin-bottom: $u * 2
+
+a, h2, h3, h4, h5
+  color: $black
+
+section.home
+  img
+    width: 100%
+
+%aspect-ratio
+  position: relative
+  width: 100%
+
+  > *
+    position: absolute
+    left: 0
+    top: 0
+    width: 100%
+    height: 100%
+
+.widescreen
+  @extend %aspect-ratio
+  padding-bottom: 9/16 * 100% !important
+
+.standard-tv
+  @extend %aspect-ratio
+  padding-bottom: 3/4 * 100% !important
+
+.gallery
+  width: 100%
+
+  > *
+    width: (1/3) * 100%
+    display: block
+    float: left
+    padding: 0 $u $u 0
+
+  img
+    display: block
+    width: 100%
