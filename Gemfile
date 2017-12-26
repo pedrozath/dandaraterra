@@ -7,6 +7,7 @@ gem 'activesupport'
 
 group :jekyll_plugins do
   gem 'jekyll-feed', '~> 0.6'
+  gem 'jekyll-coffeescript'
   gem 'jekyll-assets', '~> 2.4'
   gem 'jekyll-livereload'
   gem 'jekyll-haml', github: 'pedrozath/jekyll-haml'
